@@ -1,0 +1,29 @@
+syntax = "proto3";
+option go_package = "/conciergef";
+
+message Hello {
+    bool status = 1;
+}
+
+message Hi {
+    bool status = 1;
+}
+
+message Search {
+    bool status = 1;
+}
+
+message Result {
+    message ResultSys {
+        string name = 1;
+        string id = 2;
+    }
+
+    repeated ResultSys mResultSys = 100;
+}
+
+
+service Conciergef {
+    rpc CallTest (Hello) returns (Hi){};
+    rpc CallSearch (Search) returns (Result){};
+}
